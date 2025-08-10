@@ -1,35 +1,44 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from "react";
+import { VscHome, VscGithubInverted } from "react-icons/vsc";
+import { FaLinkedin } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
+import Dock from "./util/Dock";
+import Home from "./Pages/Home/Home";
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const items = [
+    {
+      icon: <VscHome size={20} />,
+      label: "Home",
+      onClick: () => alert("Home!"),
+    },
+    {
+      icon: <VscGithubInverted size={20} />,
+      label: "Github",
+      onClick: () => alert("Github!"),
+    },
+    {
+      icon: <FaLinkedin size={20} />,
+      label: "LinkedIn",
+      onClick: () => alert("LinkedIn!"),
+    },
+    {
+      icon: <FaXTwitter size={20} />,
+      label: "X",
+      onClick: () => alert("X"),
+    },
+  ];
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div>
+      <Home />
+      <Dock
+        items={items}
+        panelHeight={68}
+        baseItemSize={50}
+        magnification={70}
+      />
+    </div>
+  );
 }
 
-export default App
+export default App;
