@@ -15,7 +15,6 @@ import expressjs from "../assets/expressjs.svg";
 import redux from "../assets/redux.svg";
 import motion from "../assets/motion.svg";
 import nextjs from "../assets/nextjs.svg";
-import gsap from "../assets/gsap.svg";
 import vercel from "../assets/vercel.svg";
 import netlify from "../assets/netlify.svg";
 
@@ -31,8 +30,6 @@ const Skills = () => {
     { name: "Bootstrap", icon: bootstrap },
     { name: "Redux", icon: redux },
     { name: "Motion.dev", icon: motion },
-    { name: "Next.js", icon: nextjs },
-    { name: "GSAP", icon: gsap },
     { name: "Vercel", icon: vercel },
     { name: "Netlify", icon: netlify },
   ];
@@ -42,17 +39,18 @@ const Skills = () => {
     { name: "MongoDB", icon: mongodb },
     { name: "SQL", icon: sql },
     { name: "TypeScript", icon: typescript },
+    { name: "Next.js", icon: nextjs },
   ];
   return (
-    <div className="max-w-screen-2xl mx-auto  px-8 lg:px-20 py-12 block lg:flex flex-col space-y-6">
+    <div className="container mx-auto px-8 lg:px-20 py-12 block lg:flex flex-col space-y-6">
       <div className="space-y-6">
-        <div>
-          <p className="text-4xl font-bold flex flex-col items-center font-raleway">
+        <div className="block lg:flex flex-col items-center">
+          <p className="font-medium font-raleway py-2 lg:py-4 px-3 lg:px-7 border-2 lg:border-4 rounded-xl text-xl lg:text-4xl">
             Skills
           </p>
         </div>
         <div>
-          <p className="font-montserrat font-normal text-[#050505] text-base lg:text-xl">
+          <p className="font-montserrat font-medium flex flex-col items-center text-[#050505] text-base lg:text-2xl">
             Using Now:
           </p>
         </div>
@@ -70,7 +68,7 @@ const Skills = () => {
           ))}
         </div>
         <div>
-          <p className="font-montserrat font-normal text-[#050505] text-base lg:text-xl">
+          <p className="font-montserrat font-medium flex flex-col items-center text-[#050505] text-base lg:text-2xl">
             Learning:
           </p>
         </div>
@@ -81,7 +79,7 @@ const Skills = () => {
               className=" flex flex-col items-center space-y-2"
             >
               <img src={skill.icon} alt={skill.name} className="size-12" />
-              <p className="font-montserrat  text-[#050505] font-normal text-sm lg:text-lg">
+              <p className="font-montserrat  text-[#050505] font-light text-sm lg:text-lg">
                 {skill.name}
               </p>
             </div>
