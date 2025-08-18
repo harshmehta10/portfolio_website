@@ -50,6 +50,24 @@ const Hero = () => {
           cursorCharacter="|"
           className="text-[#909090] font-light font-raleway text-base lg:text-2xl max-w-2xl text-center "
         />
+        <div className="flex items-center gap-10">
+          <a href="/Harsh_resume.pdf" download="HarshMehta_Resume.pdf">
+            <button className="border-2 border-[#050505] text-[#050505] font-medium py-2 px-4 rounded-lg hover:bg-[#050505] hover:text-white transition-all duration-500 hover:scale-105 hover:translate-y-1 cursor-pointer">
+              Download CV
+            </button>
+          </a>
+          <button
+            className="border-2 border-[#050505] text-[#050505] font-medium py-2 px-4 rounded-lg hover:bg-[#050505] hover:text-white transition-all duration-500 hover:scale-105 hover:translate-y-1 cursor-pointer"
+            onClick={() =>
+              window.open(
+                "https://mail.google.com/mail/?view=cm&fs=1&to=harshmehta.srm2002@gmail.com",
+                "_blank"
+              )
+            }
+          >
+            Contact Me
+          </button>
+        </div>
         <div className="flex justify-between items-center gap-10">
           <img
             src={github}
@@ -70,7 +88,7 @@ const Hero = () => {
           <img
             src={twitter}
             alt="Twitter"
-            className="hover:scale-110 hover:translate-y-0.5 transition-transform duration-500 cursor-pointer size-8"
+            className="hover:scale-110 hover:translate-y-0.5 transition-transform duration-500 cursor-pointer size-6"
             onClick={() => window.open("https://x.com/Harshmehtaa10", "_blank")}
           />
         </div>

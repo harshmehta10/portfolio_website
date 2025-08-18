@@ -58,7 +58,7 @@ const Skills = () => {
           {Using.map((skill) => (
             <div
               key={skill.name}
-              className=" flex flex-col items-center space-y-2"
+              className=" flex flex-col items-center space-y-2 transition-all duration-500 hover:scale-105 hover:translate-y-1 cursor-pointer"
             >
               <img src={skill.icon} alt={skill.name} className="size-12 " />
               <p className="font-montserrat  text-[#050505] font-light text-sm lg:text-lg">
@@ -76,7 +76,7 @@ const Skills = () => {
           {learning.map((skill) => (
             <div
               key={skill.name}
-              className=" flex flex-col items-center space-y-2"
+              className=" flex flex-col items-center space-y-2 transition-all duration-500 hover:scale-105 hover:translate-y-1 cursor-pointer"
             >
               <img src={skill.icon} alt={skill.name} className="size-12" />
               <p className="font-montserrat  text-[#050505] font-light text-sm lg:text-lg">

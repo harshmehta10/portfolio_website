@@ -61,7 +61,10 @@ const Projects = () => {
             {/* 4-column grid for the cards */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
               {data.map((item, index) => (
-                <div key={index} className="rounded-xl overflow-hidden shadow">
+                <div
+                  key={index}
+                  className="rounded-xl overflow-hidden shadow transition-all duration-500 hover:scale-105  cursor-pointer"
+                >
                   {/* Top portion: white background with image + hover overlay */}
                   <div className="relative bg-[#F1F6EE] h-auto lg:h-64 ">
                     <img src={item.image} alt="photos" className="" />
@@ -71,23 +74,23 @@ const Projects = () => {
                   <div className="space-y-5 bg-white px-6 py-5 relative z-50">
                     {/* Title + Pricing */}
                     <div className="flex justify-between">
-                      <p className=" font-inter  text-sm lg:text-base font-medium">
+                      <p className=" font-raleway text-sm lg:text-base font-medium">
                         {item.title}
                       </p>
                     </div>
                     {/* Description */}
-                    <p className=" font-inter text-sm lg:text-base">
+                    <p className=" font-montserrat text-sm lg:text-base">
                       {item.description}
                     </p>
                     {/* Skills */}
-                    <p className=" font-inter text-sm lg:text-base">
+                    <p className=" font-montserrat text-sm lg:text-base">
                       Skills: {item.Skills}
                     </p>
                     <button
                       onClick={() => window.open(item.path, "_blank")}
                       className="cursor-pointer"
                     >
-                      <p className=" font-inter text-sm lg:text-base">
+                      <p className=" font-montserrat text-sm lg:text-base ">
                         Website
                       </p>
                     </button>
