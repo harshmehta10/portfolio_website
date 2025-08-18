@@ -13,11 +13,13 @@ const Hero = () => {
   return (
     <div className="container mx-auto h-screen px-8 lg:px-20 py-6 lg:py-10 space-y-5 flex flex-col items-center justify-center">
       <div className="flex flex-col items-center space-y-5 justify-center">
-        <img
-          src={pic}
-          alt="pic of the developer"
-          className="rounded-full size-60 object-cover"
-        />
+        <div>
+          <img
+            src={pic}
+            alt="pic of the developer"
+            className="rounded-full size-60  object-cover object-top"
+          />
+        </div>
         <div className="flex items-center space-x-2">
           <SplitText
             text=" Namaste, I am Harsh "
