@@ -1,102 +1,122 @@
-import React from "react";
-import SplitText from "../util/SplitText";
-import TextType from "../util/TextType";
-import pic from "../assets/pic.jpeg";
+import { Fragment } from "react";
+import GradientMesh from "./GradientMesh";
+import pic from "../assets/pic.webp";
 import github from "../assets/github.svg";
 import linkdin from "../assets/linkdin.svg";
 import twitter from "../assets/twitter.svg";
-const Hero = () => {
-  const handleAnimationComplete = () => {
-    console.log("All letters have animated!");
-  };
+import { data as projects } from "./Projects";
+import { groups } from "./Skills";
 
-  return (
-    <div className="container mx-auto h-screen px-8 lg:px-20 py-6 lg:py-10 space-y-5 flex flex-col items-center justify-center">
-      <div className="flex flex-col items-center space-y-5 justify-center">
-        <div>
+const socials = [
+  { href: "https://github.com/harshmehta10", icon: github, label: "GitHub" },
+  {
+    href: "https://www.linkedin.com/in/harshmehta02/",
+    icon: linkdin,
+    label: "LinkedIn",
+  },
+  { href: "https://x.com/Harshmehtaa10", icon: twitter, label: "Twitter" },
+];
+
+const headline = "Namaste, I am Harsh";
+
+// Counts come from the real lists, so they can't drift from the page.
+const stats = [
+  { label: "Experience", value: "1 yr" },
+  { label: "Projects", value: projects.length },
+  { label: "Skills", value: groups.flatMap((g) => g.skills).length },
+];
+
+const Hero = () => (
+  <header id="hero" className="relative overflow-hidden px-6 pt-32 pb-20 lg:pt-40 lg:pb-28">
+    <GradientMesh />
+
+    <div className="relative mx-auto grid max-w-[1080px] items-center gap-14 lg:grid-cols-12">
+      <div className="flex flex-col items-start gap-6 lg:col-span-7">
+        <span className="t-micro-cap rounded-full bg-canvas/70 px-2.5 py-1.5 text-primary-deep backdrop-blur-sm">
+          Open to frontend roles
+        </span>
+
+        {/* CSS letter-by-letter entrance: no animation library on the critical path.
+            Words stay unbreakable so the line only wraps at spaces. */}
+        <h1 className="t-display-xxl text-ink" aria-label={headline}>
+          {headline.split(" ").map((word, w, words) => {
+            const offset = words.slice(0, w).join(" ").length + (w ? 1 : 0);
+            // The space lives between word boxes: trailing whitespace inside an
+            // inline-block is collapsed away.
+            return (
+              <Fragment key={w}>
+                {w > 0 && " "}
+                <span aria-hidden="true" className="inline-block whitespace-nowrap">
+                  {[...word].map((ch, c) => (
+                    <span key={c} className="char-in" style={{ "--i": offset + c }}>
+                      {ch}
+                    </span>
+                  ))}
+                </span>
+              </Fragment>
+            );
+          })}
+        </h1>
+
+        <p className="t-heading-md max-w-[36ch] text-ink-secondary">
+          Fullstack developer building clean, responsive, user-friendly web
+          experiences in React and Tailwind CSS.
+        </p>
+
+        <div className="flex flex-wrap items-center gap-3 pt-2">
+          <a
+            href="/Harsh_resume.pdf"
+            download="HarshMehta_Resume.pdf"
+            className="btn btn-primary"
+          >
+            Download CV <span className="arrow" aria-hidden="true">→</span>
+          </a>
+          <a href="mailto:harshmehta.srm2002@gmail.com" className="btn btn-secondary">
+            Email me
+          </a>
+        </div>
+
+        <ul className="-ml-2.5 flex items-center">
+          {socials.map(({ href, icon, label }) => (
+            <li key={label}>
+              <a
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={label}
+                className="grid size-11 place-items-center opacity-70 transition-opacity hover:opacity-100"
+              >
+                <img src={icon} alt="" width="20" height="20" className="size-5 dark:invert" />
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      {/* Composited "product" panel: portrait card with a floating stats card */}
+      <div className="relative mx-auto w-full max-w-[380px] lg:col-span-5 lg:mr-0">
+        <div className="rounded-xl bg-canvas p-2 shadow-lift">
           <img
             src={pic}
-            alt="pic of the developer"
-            className="rounded-full size-60  object-cover object-top"
+            alt="Harsh Mehta"
+            width="520"
+            height="620"
+            fetchPriority="high"
+            className="aspect-[5/6] w-full rounded-lg object-cover object-top"
           />
-        </div>
-        <div className="flex items-center space-x-2">
-          <SplitText
-            text=" Namaste, I am Harsh "
-            className="font-raleway font-bold text-xl lg:text-4xl"
-            delay={100}
-            duration={0.6}
-            ease="power3.out"
-            splitType="chars"
-            from={{ opacity: 0, y: 40 }}
-            to={{ opacity: 1, y: 0 }}
-            threshold={0.1}
-            rootMargin="-100px"
-            textAlign="center"
-            onLetterAnimationComplete={handleAnimationComplete}
-          />
-          <span className="wave ">👋</span>
         </div>
 
-        {/* <p className="text-[#909090] font-light font-raleway text-2xl max-w-2xl text-center">
-          Frontend Developer focused on building clean, responsive, and
-          user-friendly web experiences.
-        </p> */}
-        <TextType
-          text={[
-            "Frontend Developer focused on building clean, responsive, and user-friendly web experiences.",
-          ]}
-          typingSpeed={55}
-          pauseDuration={1000}
-          showCursor={true}
-          cursorCharacter="|"
-          className="text-[#909090] font-light font-raleway text-base lg:text-2xl max-w-2xl text-center "
-        />
-        <div className="flex items-center gap-10">
-          <a href="/Harsh_resume.pdf" download="HarshMehta_Resume.pdf">
-            <button className="border-2 border-[#050505] text-[#050505] font-medium py-2 px-4 rounded-lg hover:bg-[#050505] hover:text-white transition-all duration-500 hover:scale-105 hover:translate-y-1 cursor-pointer">
-              Download CV
-            </button>
-          </a>
-          <button
-            className="border-2 border-[#050505] text-[#050505] font-medium py-2 px-4 rounded-lg hover:bg-[#050505] hover:text-white transition-all duration-500 hover:scale-105 hover:translate-y-1 cursor-pointer"
-            onClick={() =>
-              window.open(
-                "https://mail.google.com/mail/?view=cm&fs=1&to=harshmehta.srm2002@gmail.com",
-                "_blank"
-              )
-            }
-          >
-            Contact Me
-          </button>
-        </div>
-        <div className="flex justify-between items-center gap-10">
-          <img
-            src={github}
-            alt="GitHub"
-            className="hover:scale-110 hover:translate-y-0.5 transition-transform duration-500 cursor-pointer size-8"
-            onClick={() =>
-              window.open("https://github.com/harshmehta10", "_blank")
-            }
-          />
-          <img
-            src={linkdin}
-            alt="LinkedIn"
-            className="hover:scale-110 hover:translate-y-0.5 transition-transform duration-500 cursor-pointer size-8"
-            onClick={() =>
-              window.open("https://www.linkedin.com/in/harshmehta02/", "_blank")
-            }
-          />
-          <img
-            src={twitter}
-            alt="Twitter"
-            className="hover:scale-110 hover:translate-y-0.5 transition-transform duration-500 cursor-pointer size-6"
-            onClick={() => window.open("https://x.com/Harshmehtaa10", "_blank")}
-          />
-        </div>
+        <dl className="tnum absolute -bottom-8 -left-4 grid grid-cols-3 gap-5 rounded-lg bg-canvas px-5 py-4 shadow-float sm:-left-10">
+          {stats.map(({ label, value }) => (
+            <div key={label}>
+              <dt className="t-micro text-ink-mute">{label}</dt>
+              <dd className="t-heading-lg pt-1 text-ink">{value}</dd>
+            </div>
+          ))}
+        </dl>
       </div>
     </div>
-  );
-};
+  </header>
+);
 
 export default Hero;

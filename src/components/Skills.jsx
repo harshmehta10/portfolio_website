@@ -1,4 +1,3 @@
-import React from "react";
 import bootstrap from "../assets/bootstrap.svg";
 import css from "../assets/css.svg";
 import git from "../assets/git.svg";
@@ -17,77 +16,68 @@ import motion from "../assets/motion.svg";
 import nextjs from "../assets/nextjs.svg";
 import vercel from "../assets/vercel.svg";
 import netlify from "../assets/netlify.svg";
+import SectionHeading from "./SectionHeading";
 
-const Skills = () => {
-  const Using = [
-    { name: "HTML", icon: html },
-    { name: "CSS", icon: css },
-    { name: "JavaScript", icon: javascript },
-    { name: "React", icon: reactjs },
-    { name: "Git", icon: git },
-    { name: "Github", icon: github },
-    { name: "Tailwind CSS", icon: tailwind },
-    { name: "Bootstrap", icon: bootstrap },
-    { name: "Redux", icon: redux },
-    { name: "Motion.dev", icon: motion },
-    { name: "Vercel", icon: vercel },
-    { name: "Netlify", icon: netlify },
-  ];
-  const learning = [
-    { name: "Node.js", icon: nodejs },
-    { name: "Express.js", icon: expressjs },
-    { name: "MongoDB", icon: mongodb },
-    { name: "SQL", icon: sql },
-    { name: "TypeScript", icon: typescript },
-    { name: "Next.js", icon: nextjs },
-  ];
-  return (
-    <div className="container mx-auto px-8 lg:px-20 py-12 block lg:flex flex-col space-y-6">
-      <div className="space-y-6">
-        <div className="block lg:flex flex-col items-center">
-          <p className="font-medium font-raleway py-2 lg:py-4 px-3 lg:px-7 border-2 lg:border-4 rounded-xl text-xl lg:text-4xl">
-            Skills
-          </p>
+// eslint-disable-next-line react-refresh/only-export-components -- Hero reads the count
+export const groups = [
+  {
+    skills: [
+      { name: "HTML", icon: html },
+      { name: "CSS", icon: css },
+      { name: "JavaScript", icon: javascript },
+      { name: "React", icon: reactjs },
+      { name: "Git", icon: git },
+      { mono: true, name: "GitHub", icon: github },
+      { name: "Tailwind CSS", icon: tailwind },
+      { name: "Bootstrap", icon: bootstrap },
+      { name: "Redux", icon: redux },
+      { mono: true, name: "Motion.dev", icon: motion },
+      { mono: true, name: "Vercel", icon: vercel },
+      { name: "Netlify", icon: netlify },
+      { name: "Node.js", icon: nodejs },
+      { name: "Express.js", icon: expressjs },
+      { name: "MongoDB", icon: mongodb },
+      { name: "SQL", icon: sql },
+      { name: "TypeScript", icon: typescript },
+      { mono: true, name: "Next.js", icon: nextjs },
+    ],
+  },
+];
+
+// The cream card is the warm interlude between the cool bands.
+// On dark, logos get a small white backing (like the company logos) rather than
+// inverting only the black ones: dark-coloured marks like SQL vanish on navy too.
+const Skills = () => (
+  <section className="band bg-canvas">
+    <div className="reveal mx-auto max-w-[1080px] space-y-12">
+      <SectionHeading title="Skills" />
+
+      {groups.map(({ label, skills }, g) => (
+        <div key={label ?? g} className="rounded-lg bg-canvas-cream p-6 sm:p-8">
+          {label && <h3 className="t-micro-cap pb-6 text-ink">{label}</h3>}
+
+          <ul className="stagger grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
+            {skills.map((skill, i) => (
+              <li
+                key={skill.name}
+                style={{ "--i": i }}
+                className="flex items-center gap-3 rounded-md bg-canvas px-3 py-3 shadow-card"
+              >
+                <img
+                  src={skill.icon}
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                  className="size-6 shrink-0 rounded-xs object-contain dark:bg-white dark:p-0.5"
+                />
+                <p className="t-body-md truncate text-ink">{skill.name}</p>
+              </li>
+            ))}
+          </ul>
         </div>
-        <div>
-          <p className="font-montserrat font-medium flex flex-col items-center text-[#050505] text-base lg:text-2xl">
-            Using Now:
-          </p>
-        </div>
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-10 ">
-          {Using.map((skill) => (
-            <div
-              key={skill.name}
-              className=" flex flex-col items-center space-y-2 transition-all duration-500 hover:scale-105 hover:translate-y-1 cursor-pointer"
-            >
-              <img src={skill.icon} alt={skill.name} className="size-12 " />
-              <p className="font-montserrat  text-[#050505] font-light text-sm lg:text-lg">
-                {skill.name}
-              </p>
-            </div>
-          ))}
-        </div>
-        <div>
-          <p className="font-montserrat font-medium flex flex-col items-center text-[#050505] text-base lg:text-2xl">
-            Learning:
-          </p>
-        </div>
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-10 ">
-          {learning.map((skill) => (
-            <div
-              key={skill.name}
-              className=" flex flex-col items-center space-y-2 transition-all duration-500 hover:scale-105 hover:translate-y-1 cursor-pointer"
-            >
-              <img src={skill.icon} alt={skill.name} className="size-12" />
-              <p className="font-montserrat  text-[#050505] font-light text-sm lg:text-lg">
-                {skill.name}
-              </p>
-            </div>
-          ))}
-        </div>
-      </div>
+      ))}
     </div>
-  );
-};
+  </section>
+);
 
 export default Skills;

@@ -1,29 +1,31 @@
-import React from "react";
+import SectionHeading from "./SectionHeading";
 
-const About = () => {
-  return (
-    <div className=" container mx-auto  px-8 lg:px-20 py-12 block lg:flex flex-col space-y-6">
-      <div className="block lg:flex flex-col items-center justify-center space-y-6">
-        <p className="font-medium font-montserrat py-2 lg:py-4 px-3 lg:px-7 border-2 lg:border-4 rounded-xl text-xl lg:text-4xl ">
-          About Me
+const About = () => (
+  <section className="band bg-canvas">
+    <div className="reveal mx-auto grid max-w-[1080px] gap-8 lg:grid-cols-12 lg:gap-12">
+      <div className="lg:col-span-4">
+        <SectionHeading title="About" />
+      </div>
+
+      <div className="grid gap-6 md:grid-cols-2 lg:col-span-8">
+        <p className="t-body-lg text-ink-secondary">
+          I'm a fullstack developer with 1 year of hands-on experience,
+          including a three-month internship built around React, Tailwind CSS,
+          Firebase, and API integration. Across that internship and my own
+          projects I've shipped responsive web applications end to end, and I
+          work comfortably with Git, GitHub, and deployments on Netlify and
+          Vercel.
         </p>
-        <p className="font-open-sans  text-[#050505] font-light text-sm lg:text-lg">
-          I'm a passionate and curious Frontend Developer with 6 months of
-          hands-on experience, including a 3-month internship focused on
-          React.js, Tailwind CSS, Firebase, and API integration. During my
-          internship and personal projects, I built responsive web applications
-          . I’m also experienced with Git, GitHub, and deploying apps via
-          Netlify and Vercel. Alongside my technical experience, I gained 3
-          months of corporate exposure where I enhanced my soft
-          skills—communication, collaboration, and time management. I’m now
-          actively seeking a frontend development role where I can grow my
-          skills, explore advanced tools like Next.js and TypeScript, and
-          contribute to meaningful products. My long-term goal is to become a
-          well-rounded fullstack developer.
+        <p className="t-body-lg text-ink-secondary">
+          Three months of corporate exposure alongside that sharpened the parts
+          that aren't code: communication, collaboration, and time management.
+          I'm now looking for a frontend role where I can go deeper into Next.js
+          and TypeScript and contribute to products people actually use, on the
+          way to becoming a well-rounded fullstack developer.
         </p>
       </div>
     </div>
-  );
-};
+  </section>
+);
 
 export default About;
