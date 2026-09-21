@@ -1,7 +1,8 @@
+import mediaclock from "../assets/mediaclock.webp";
 import unitedlogo from "../assets/unitedlexlogo.svg";
 import techxerrologo from "../assets/techxerro.svg";
 import ipu from "../assets/ipu-logo.webp";
-import vbb from "../assets/vbb.webp";
+import ignou from "../assets/IGNOU-Logo.webp";
 import SectionHeading from "./SectionHeading";
 import EntryList from "./EntryList";
 
@@ -10,6 +11,14 @@ import EntryList from "./EntryList";
 // section now. Both anchor IDs stay put so the nav and any existing links to
 // #work / #education still land in the right place.
 const work = [
+  {
+    logo: mediaclock,
+    alt: "MediaClock logo",
+    wordmark: true,
+    title: "Fullstack Developer",
+    subtitle: "MediaClock",
+    meta: "Sept 2025 - present",
+  },
   {
     logo: unitedlogo,
     alt: "UnitedLex logo",
@@ -28,18 +37,18 @@ const work = [
 
 const education = [
   {
+    logo: ignou,
+    alt: "IGNOU logo",
+    title: "Indira Gandhi National Open University",
+    subtitle: "MCA",
+    meta: "Pursuing",
+  },
+  {
     logo: ipu,
     alt: "GGSIPU logo",
     title: "Guru Gobind Singh Indraprastha University",
     subtitle: "BCA",
     meta: "2021 - 2024",
-  },
-  {
-    logo: vbb,
-    alt: "Vidya Bal Bhawan logo",
-    title: "Vidya Bal Bhawan Sr. Sec. School",
-    subtitle: "Commerce with Maths",
-    meta: "2019 - 2021",
   },
 ];
 

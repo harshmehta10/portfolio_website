@@ -33,7 +33,7 @@ const Nav = () => {
         }
         setActive(SECTIONS.filter(({ id }) => seen.has(id)).pop()?.id ?? "");
       },
-      { rootMargin: "-25% 0px -70% 0px" }
+      { rootMargin: "-25% 0px -70% 0px" },
     );
 
     for (const { id } of SECTIONS) {
@@ -47,16 +47,22 @@ const Nav = () => {
     <nav
       aria-label="Sections"
       className={`fixed inset-x-0 top-0 z-50 transition-[background-color,box-shadow] duration-200 ${
-        scrolled ? "bg-canvas/90 shadow-card backdrop-blur-md" : "bg-transparent"
+        scrolled
+          ? "bg-canvas/90 shadow-card backdrop-blur-md"
+          : "bg-transparent"
       }`}
     >
-      <div className="mx-auto flex h-16 max-w-[1080px] items-center justify-between gap-3 px-4 sm:gap-6 sm:px-6">
-        <a href="#top" className="t-heading-sm whitespace-nowrap font-normal text-ink">
+      <div className="mx-auto flex max-w-[1080px] flex-wrap items-center justify-between gap-x-3 px-4 max-md:py-3 sm:gap-x-6 sm:px-6 md:h-16">
+        <a
+          href="#top"
+          className="t-heading-sm whitespace-nowrap font-normal text-ink"
+        >
           Harsh Mehta
         </a>
 
-        {/* Below md the four anchors are dropped; the CV pill stays reachable */}
-        <ul className="hidden items-center gap-8 md:flex">
+        {/* Too narrow to sit inline on a phone, so the anchors drop to their own
+            row under the logo and scroll sideways if they ever outgrow it. */}
+        <ul className="order-last flex w-full items-center gap-6 overflow-x-auto pt-3 max-md:-mb-1 max-md:pb-1 md:order-none md:w-auto md:gap-8 md:overflow-visible md:pt-0">
           {SECTIONS.map(({ id, label }) => (
             <li key={id}>
               <a
@@ -77,11 +83,14 @@ const Nav = () => {
         <div className="flex items-center gap-2 sm:gap-3">
           <ThemeToggle />
           <a
-            href="/Harsh_resume.pdf"
-            download="HarshMehta_Resume.pdf"
-            className="btn btn-primary btn-sm"
-          >
-            Download CV <span className="arrow" aria-hidden="true">→</span>
+            href="/public//HarshMehtaFullstackDev.pdf"
+            download="HarshMehtaFullstackDev.pdf"
+            className="btn btn-primary"
+          > 
+            Download CV{" "}
+            <span className="arrow" aria-hidden="true">
+              →
+            </span>
           </a>
         </div>
       </div>

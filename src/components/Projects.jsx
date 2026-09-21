@@ -3,12 +3,27 @@ import shoor from "../assets/shoor.webp";
 import allinonepodcast from "../assets/allinone.webp";
 import blal from "../assets/blal.webp";
 import ots from "../assets/ots.webp";
+import mctyson from "../assets/mctyson.webp";
 import SectionHeading from "./SectionHeading";
 
 // Descriptions are cut to roughly one scannable line each. The originals ran
 // forty-plus words of feature list per card, which nobody reads on a grid.
 // eslint-disable-next-line react-refresh/only-export-components -- Hero reads the count
 export const data = [
+  {
+    title: "mcTyson",
+    description:
+      "Receipts and invoices arrive as mail and die there. mcTyson reads them out of the inbox and turns them into a ledger you can search.",
+    image: mctyson,
+    alt: "mcTyson invoice dashboard listing monthly receipts and totals",
+    path: "https://app.mctyson.io/",
+    highlights: [
+      "Pulls the vendor, amount and attachment out of each mail and files it by month, totalling across currencies",
+      "Flags repeating payments so a subscription surfaces before it renews, not after",
+      "Google OAuth sign-in, search across every invoice, and one-click export",
+    ],
+    skills: ["NextJs", "SupaBase", "Tailwind CSS"],
+  },
   {
     title: "Netflix",
     description:
@@ -94,12 +109,31 @@ const Card = ({ item, index, featured }) => (
       </div>
     </div>
 
-    <div className={`flex flex-1 flex-col gap-3 p-6 sm:p-8 ${featured ? "md:justify-center" : ""}`}>
-      <h3 className={featured ? "t-display-lg text-ink" : "t-display-md text-ink"}>
+    <div
+      className={`flex flex-1 flex-col gap-3 p-6 sm:p-8 ${featured ? "md:justify-center" : ""}`}
+    >
+      <h3
+        className={featured ? "t-display-lg text-ink" : "t-display-md text-ink"}
+      >
         {item.title}
       </h3>
 
-      <p className="t-body-md flex-1 text-ink-secondary">{item.description}</p>
+      <p className="t-body-md text-ink-secondary">{item.description}</p>
+
+      {item.highlights ? (
+        <ul className="flex-1 space-y-2 pt-1">
+          {item.highlights.map((point) => (
+            <li
+              key={point}
+              className="t-body-md relative pl-4 text-ink-secondary before:absolute before:top-[0.6em] before:left-0 before:size-1.5 before:rounded-full before:bg-primary-subdued"
+            >
+              {point}
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <span className="flex-1" />
+      )}
 
       <ul className="flex flex-wrap gap-1.5 pt-1">
         {item.skills.map((skill) => (
@@ -113,13 +147,17 @@ const Card = ({ item, index, featured }) => (
       </ul>
 
       <span className="link-arrow t-body-md pt-2 font-normal text-link">
-        Visit site <span className="arrow" aria-hidden="true">→</span>
+        Visit site{" "}
+        <span className="arrow" aria-hidden="true">
+          →
+        </span>
       </span>
     </div>
   </a>
 );
 
-// First project runs full width, the other four fill a 2x2.
+// First project runs full width; the rest fill a two-column grid, and an odd
+// leftover runs full width too rather than sitting alone in a half row.
 const Projects = () => {
   const [featured, ...rest] = data;
 
@@ -131,7 +169,12 @@ const Projects = () => {
         <div className="stagger grid grid-cols-1 gap-6 md:grid-cols-2">
           <Card item={featured} index={0} featured />
           {rest.map((item, i) => (
-            <Card key={item.title} item={item} index={i + 1} />
+            <Card
+              key={item.title}
+              item={item}
+              index={i + 1}
+              featured={rest.length % 2 === 1 && i === rest.length - 1}
+            />
           ))}
         </div>
       </div>

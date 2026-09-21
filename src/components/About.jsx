@@ -9,19 +9,20 @@ const About = () => (
 
       <div className="grid gap-6 md:grid-cols-2 lg:col-span-8">
         <p className="t-body-lg text-ink-secondary">
-          I'm a fullstack developer with 1 year of hands-on experience,
-          including a three-month internship built around React, Tailwind CSS,
-          Firebase, and API integration. Across that internship and my own
-          projects I've shipped responsive web applications end to end, and I
-          work comfortably with Git, GitHub, and deployments on Netlify and
-          Vercel.
+          I'm a fullstack developer at MediaClock, where I built and shipped
+          mcTyson — an invoice tracker that reads receipts out of a mailbox and
+          turns them into something you can search — in Next.js, TypeScript and
+          Supabase.
+          It's the kind of product I like: an unglamorous problem that everyone
+          has, where most of the work is in the parts nobody sees.
         </p>
         <p className="t-body-lg text-ink-secondary">
-          Three months of corporate exposure alongside that sharpened the parts
-          that aren't code: communication, collaboration, and time management.
-          I'm now looking for a frontend role where I can go deeper into Next.js
-          and TypeScript and contribute to products people actually use, on the
-          way to becoming a well-rounded fullstack developer.
+          Before that I spent a year and a half shipping responsive React
+          applications end to end, through an internship at Techxerro and client
+          work built on React, Tailwind CSS, Firebase and third-party APIs. I'm
+          comfortable owning a feature from the interface down to the data
+          model, and looking for a fullstack role on a product people actually
+          use.
         </p>
       </div>
     </div>

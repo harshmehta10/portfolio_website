@@ -21,19 +21,22 @@ const headline = "Namaste, I am Harsh";
 
 // Counts come from the real lists, so they can't drift from the page.
 const stats = [
-  { label: "Experience", value: "1 yr" },
+  { label: "Experience", value: "1.5 yrs" },
   { label: "Projects", value: projects.length },
   { label: "Skills", value: groups.flatMap((g) => g.skills).length },
 ];
 
 const Hero = () => (
-  <header id="hero" className="relative overflow-hidden px-6 pt-32 pb-20 lg:pt-40 lg:pb-28">
+  <header
+    id="hero"
+    className="relative overflow-hidden px-6 pt-32 pb-20 lg:pt-40 lg:pb-28"
+  >
     <GradientMesh />
 
     <div className="relative mx-auto grid max-w-[1080px] items-center gap-14 lg:grid-cols-12">
       <div className="flex flex-col items-start gap-6 lg:col-span-7">
         <span className="t-micro-cap rounded-full bg-canvas/70 px-2.5 py-1.5 text-primary-deep backdrop-blur-sm">
-          Open to frontend roles
+          Open to Fullstack roles
         </span>
 
         {/* CSS letter-by-letter entrance: no animation library on the critical path.
@@ -46,9 +49,16 @@ const Hero = () => (
             return (
               <Fragment key={w}>
                 {w > 0 && " "}
-                <span aria-hidden="true" className="inline-block whitespace-nowrap">
+                <span
+                  aria-hidden="true"
+                  className="inline-block whitespace-nowrap"
+                >
                   {[...word].map((ch, c) => (
-                    <span key={c} className="char-in" style={{ "--i": offset + c }}>
+                    <span
+                      key={c}
+                      className="char-in"
+                      style={{ "--i": offset + c }}
+                    >
                       {ch}
                     </span>
                   ))}
@@ -65,13 +75,19 @@ const Hero = () => (
 
         <div className="flex flex-wrap items-center gap-3 pt-2">
           <a
-            href="/Harsh_resume.pdf"
-            download="HarshMehta_Resume.pdf"
+            href="/public//HarshMehtaFullstackDev.pdf"
+            download="HarshMehtaFullstackDev.pdf"
             className="btn btn-primary"
           >
-            Download CV <span className="arrow" aria-hidden="true">→</span>
+            Download CV{" "}
+            <span className="arrow" aria-hidden="true">
+              →
+            </span>
           </a>
-          <a href="mailto:harshmehta.srm2002@gmail.com" className="btn btn-secondary">
+          <a
+            href="mailto:harshmehta.srm2002@gmail.com"
+            className="btn btn-secondary"
+          >
             Email me
           </a>
         </div>
@@ -86,7 +102,13 @@ const Hero = () => (
                 aria-label={label}
                 className="grid size-11 place-items-center opacity-70 transition-opacity hover:opacity-100"
               >
-                <img src={icon} alt="" width="20" height="20" className="size-5 dark:invert" />
+                <img
+                  src={icon}
+                  alt=""
+                  width="20"
+                  height="20"
+                  className="size-5 dark:invert"
+                />
               </a>
             </li>
           ))}

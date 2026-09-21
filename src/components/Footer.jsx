@@ -30,7 +30,7 @@ const Footer = () => (
           <div className="space-y-4">
             <p className="t-display-xl">Let's build something together</p>
             <p className="t-body-lg max-w-[42ch] text-white/75">
-              I'm open to frontend roles and freelance work. The fastest way to
+              I'm open to fullstack roles and freelance work. The fastest way to
               reach me is email.
             </p>
           </div>
