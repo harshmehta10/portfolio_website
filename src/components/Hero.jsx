@@ -75,7 +75,7 @@ const Hero = () => (
 
         <div className="flex flex-wrap items-center gap-3 pt-2">
           <a
-            href="/public//HarshMehtaFullstackDev.pdf"
+            href="/HarshMehtaFullstackDev.pdf"
             download="HarshMehtaFullstackDev.pdf"
             className="btn btn-primary"
           >

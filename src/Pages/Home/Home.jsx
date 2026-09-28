@@ -1,3 +1,4 @@
+import Preloader from "../../components/Preloader";
 import Nav from "../../components/Nav";
 import Hero from "../../components/Hero";
 import About from "../../components/About";
@@ -9,6 +10,7 @@ import Footer from "../../components/Footer";
 // Band rhythm: mesh hero -> white -> soft -> white (cream card) -> soft -> white footer.
 const Home = () => (
   <div id="top">
+    <Preloader />
     <Nav />
     <Hero />
     <main>
