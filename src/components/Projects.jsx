@@ -48,7 +48,7 @@ export const data = [
       "Flags repeating payments so a subscription surfaces before it renews, not after",
       "Google OAuth sign-in, search across every invoice, and one-click export",
     ],
-    skills: ["NextJs", "SupaBase", "Tailwind CSS"],
+    skills: ["Next.js", "Supabase", "Tailwind CSS"],
   },
   {
     title: "Netflix",
@@ -62,7 +62,7 @@ export const data = [
   {
     title: "Shoor",
     description:
-      "A minimalist fashion storefront with product categories, locale options, and a full policy footer.",
+      "A minimalist fashion storefront with browsable product categories, a local product selection and a complete policy footer.",
     image: shoor,
     alt: "Shoor fashion store landing page",
     path: "https://shoor.netlify.app/",
