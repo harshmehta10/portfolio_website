@@ -6,6 +6,9 @@ import ots from "../assets/ots.webp";
 import mctyson from "../assets/mctyson.webp";
 import moneyorbit from "../assets/moneyorbit.webp";
 import neuwrld from "../assets/neuwrld.webp";
+import teamalliedhealth from "../assets/teamalliedhealth.webp";
+import realto from "../assets/realto.webp";
+import vipsportsclub from "../assets/vipsportsclub.webp";
 import SectionHeading from "./SectionHeading";
 
 // Descriptions are cut to roughly one scannable line each. The originals ran
@@ -49,6 +52,34 @@ export const data = [
       "Google OAuth sign-in, search across every invoice, and one-click export",
     ],
     skills: ["Next.js", "Supabase", "Tailwind CSS"],
+  },
+  {
+    title: "Realto",
+    description:
+      "An Australian property marketplace: search by suburb, postcode or state across buying, renting, loans, commercial, student and flatmate listings, in 20+ languages.",
+    image: realto,
+    alt: "Realto property search homepage with a Melbourne skyline and search bar",
+    path: "https://realto-tau.vercel.app/homepage",
+    underDevelopment: true,
+    skills: ["Next.js", "React", "Axios", "Lucide", "Vercel"],
+  },
+  {
+    title: "VIP Sports Club",
+    description:
+      "An Australian rewards and giveaway club: Silver and Gold memberships unlock partner discounts and automatic entries into weekly prize draws.",
+    image: vipsportsclub,
+    alt: "VIP Sports Club landing page with a hero and a Join Now button",
+    path: "https://vipsportsclub.vercel.app/homepage",
+    skills: ["Next.js", "React", "Tailwind CSS", "Swiper", "Vercel"],
+  },
+  {
+    title: "Team Allied Health",
+    description:
+      "A multidisciplinary allied health practice in Melbourne: mobile care across Greater Melbourne, Australia-wide telehealth, a blog and an enquiry form.",
+    image: teamalliedhealth,
+    alt: "Team Allied Health website hero for supporting every ability, with a referral button",
+    path: "https://teamalliedhealth.vercel.app/",
+    skills: ["HTML", "Tailwind CSS", "JavaScript", "Vercel"],
   },
   {
     title: "Netflix",
